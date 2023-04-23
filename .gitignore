@@ -21,3 +21,4 @@ git_push.sh
 appuser
 appuser.pub
 key.json
+./trash
