@@ -25,3 +25,28 @@ RUN apt update \
     && gem install bundler -v 1.17.2 \
     && gem install bundler -v 2.4
 To install the missing version, run `gem install bundler:1.17.2
+=================
+#gitlab-ci-1
+=================
+
+ ##Terraform
+ Запуск через terraform apply
+  - main.tf : описана конфигурация сервера
+  - outputs.tf :
+  - variables.tf : вывод IP на косоль после исполнения
+  - terraform.tfvars.example : подставить свои переменные
+ ##Ansible
+ Запуск через terraform apply
+  - install.yml: описана конфигурация сервера
+  - ansible.cfg : файл конфигурации Ansible
+  - inventory.yml : сервер(а) где используем Ansible
+  - requirements.txt : Ansible version
+ ##Как запустить:
+  - подставить в terraform.tfvars.example (удалить .example) свои значения
+  - проверить через validate, что все написанно корректно
+  - terraform apply : для запуска
+  - ssh -i ~./ssh_key user_name@server_ip : для проверки работы сервера и ключа SSH
+  - ansible-playbook install.yml -v : запуск playbook и отслеживание состояния
+  - docker exec -it id_docker_container grep 'Password:' /etc/gitlab/initial_root_password : для получения password_root
+
+=================
