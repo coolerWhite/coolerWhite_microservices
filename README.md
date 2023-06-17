@@ -2,7 +2,6 @@
 coolerWhite microservices repository
 Сервисы mogodb raddis подняты локально в докер контейнере
 
-=================
 docker-3
 =================
 скачана и распакован архив reddit-microservices. переименнован в src
@@ -16,32 +15,31 @@ FROM ruby:2.2 -> FROM ruby:2.5
 ./ui/Dockerfile
 FROM ubuntu:16.04 -> FROM ubuntu:20.04
 
-RUN apt-get update \
+`RUN apt-get update \
  && apt-get install -y ruby-full ruby-dev build-essential \
- && gem install bundler --no-ri --no-rdoc
+ && gem install bundler --no-ri --no-rdoc`
 
-RUN apt update \
+`RUN apt update \
     && apt install -y ruby-full ruby-dev build-essential \
     && gem install bundler -v 1.17.2 \
-    && gem install bundler -v 2.4
-To install the missing version, run `gem install bundler:1.17.2
-=================
-#gitlab-ci-1
+    && gem install bundler -v 2.4`
+
+# gitlab-ci-1
 =================
 
- ##Terraform
+ ## Terraform
  Запуск через terraform apply
   - main.tf : описана конфигурация сервера
   - outputs.tf :
   - variables.tf : вывод IP на косоль после исполнения
   - terraform.tfvars.example : подставить свои переменные
- ##Ansible
+ ## Ansible
  Запуск через terraform apply
   - install.yml: описана конфигурация сервера
   - ansible.cfg : файл конфигурации Ansible
   - inventory.yml : сервер(а) где используем Ansible
   - requirements.txt : Ansible version
- ##Как запустить:
+ ## Как запустить:
   - подставить в terraform.tfvars.example (удалить .example) свои значения
   - проверить через validate, что все написанно корректно
   - terraform apply : для запуска
