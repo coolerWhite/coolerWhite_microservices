@@ -1,7 +1,6 @@
 version: '3.3'
 services:
   post_db:
-#    platform: ${PLATFORM}
     container_name: ${CN_DB}
     image: mongo:3.2
     volumes:
@@ -12,8 +11,6 @@ services:
           - post_db
           - comment_db
   ui:
-#    build: ./ui
-#    platform: ${PLATFORM}
     container_name: ${CN_UI}
     image: ${USERNAME}/${UI_IMAGE}
     ports:
@@ -21,8 +18,6 @@ services:
     networks:
       - front_net
   post:
-#    build: ./post-py
-#    platform: ${PLATFORM}
     container_name: ${CN_POST}
     image: ${USERNAME}/${POST_IMAGE}
     ports:
@@ -34,8 +29,6 @@ services:
       - back_net
       - front_net
   comment:
-#    build: ./comment
-#    platform: ${PLATFORM}
     container_name: ${CN_COMMENT}
     image: ${USERNAME}/${COMMENT_IMAGE}
     environment:
@@ -44,7 +37,6 @@ services:
     networks:
       - back_net
       - front_net
-
   prometheus:
     container_name: ${CN_MONITOR}
     image: ${USERNAME}/prometheus
@@ -60,7 +52,6 @@ services:
       - back_net
       - front_net
       - monitor_net
-
   node-exporter:
     image: prom/node-exporter:v0.15.2
     user: root
@@ -74,7 +65,6 @@ services:
       - '--collector.filesystem.ignored-mount-points="^/(sys|proc|dev|host|etc)($$|/)"'
     networks:
       - monitor_net
-
   mongodb-exporter:
     image: percona/mongodb_exporter:2.37.0
     command:
@@ -82,7 +72,6 @@ services:
     networks:
       - monitor_net
       - back_net
-
   blackbox-exporter:
     image: bitnami/blackbox-exporter:latest
     ports:
@@ -100,13 +89,11 @@ networks:
   back_net:
     driver: bridge
     ipam:
-#      driver: default
       config:
         - subnet: ${BACK_DOCKER_SUBNET}
   front_net:
     driver: bridge
     ipam:
-#      driver: default
       config:
         - subnet: ${FRONT_DOCKER_SUBNET}
   monitor_net:
