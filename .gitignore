@@ -7,7 +7,6 @@ variables.json
 jdauphant.nginx
 vault.key
 git_push.sh
-docker_build.sh
 
 # Vagrant & molecule
 .vagrant/
