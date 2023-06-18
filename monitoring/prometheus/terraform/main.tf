@@ -8,10 +8,10 @@ terraform {
 }
 
 provider "yandex" {
-  token = "y0_AgAAAAAGSkciAATuwQAAAADdNLrY_0Khq-URTsm09HG0_paekMdljFQ"
-  cloud_id = "b1g7l74lnn6rclqqjmol"
-  folder_id = "b1g48emueni74b1dvtn3"
-  zone = "ru-central1-a"
+  token = ""
+  cloud_id = ""
+  folder_id = ""
+  zone = ""
 }
 
 resource "yandex_compute_instance" "docker" {
@@ -24,13 +24,13 @@ resource "yandex_compute_instance" "docker" {
 
   boot_disk {
     initialize_params {
-      image_id = "fd83vhe8fsr4pe98v6oj"
+      image_id = ""
       size = 15
     }
   }
 
   network_interface {
-    subnet_id = "e9bg4jvgvedi3j7jhecv"
+    subnet_id = ""
     ipv4 = true
     nat = true
   }
