@@ -8,42 +8,43 @@ terraform {
 }
 
 provider "yandex" {
-  token = var.token
-  cloud_id = var.cloud_id
-  folder_id = var.folder_id
-  zone = var.zone
+  token = ""
+  cloud_id = ""
+  folder_id = ""
+  zone = ""
 }
 
 resource "yandex_compute_instance" "docker" {
-  name = "docker"
+  name = "docker-host"
 
   resources {
-    cores = 4
-    memory = 8
+    cores = 2
+    memory = 4
   }
 
-  boot_disk{
+  boot_disk {
     initialize_params {
-      image_id = var.image_id
-      size = 25
+      image_id = ""
+      size = 15
     }
   }
 
   network_interface {
-    subnet_id = var.subnet_id
+    subnet_id = ""
     ipv4 = true
     nat = true
   }
 
   metadata = {
-    ssh-keys = "ubuntu:${file(var.public_key_path)}"
+    ssh-keys = "ubuntu:${file("/home/otus/.ssh/ubuntu.pub")}"
   }
 
   connection {
     type = "ssh"
     host = yandex_compute_instance.docker.network_interface.0.nat_ip_address
-    user = var.user
+    user = "ubuntu"
     agent = false
-    private_key = file(var.private_key_path)
+    private_key = file("/home/otus/.ssh/ubuntu")
   }
+
 }
