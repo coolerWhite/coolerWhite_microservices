@@ -49,11 +49,9 @@ FROM ubuntu:16.04 -> FROM ubuntu:20.04
 
 =================
 logging-1
-====
-export USER_NAME=coolerwhite
-docker login
+=================
 
-YC
-sudo rm -rf /usr/local/go && sudo tar -C /usr/local -xzf go1.20.5.linux-amd64.tar.gz
-export PATH=$PATH:/usr/local/go/bin
-go install github.com/yandex-cloud/docker-machine-driver-yandex@latest
+##Как запустить
+ - создать Docker контейнер fluentd (logging/fluentd)
+ - поднять инфраструктуру запуском *compose.yml в директории docker
+ - настроить сборку логов и метрик
