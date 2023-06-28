@@ -25,7 +25,7 @@ resource "yandex_compute_instance" "docker" {
   boot_disk{
     initialize_params {
       image_id = var.image_id
-      size = 22
+      size = 25
     }
   }
 
