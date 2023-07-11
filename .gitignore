@@ -24,3 +24,4 @@ appuser.pub
 key.json
 ./trash
 .terraform.lock.hcl
+.env
