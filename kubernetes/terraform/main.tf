@@ -40,7 +40,7 @@ resource "yandex_vpc_subnet" "k8s_net-a" {
 resource "yandex_vpc_security_group" "group1" {
   name        = "k8s_security-group"
   network_id  = "${yandex_vpc_network.k8s_net.id}"
-  
+
   labels = {
     my-label = "k8s_security-group"
   }
@@ -111,7 +111,7 @@ resource "yandex_kms_symmetric_key" "k8s_kms" {
   name = "k8s_kms"
   description = "сервис для создания ключей шифрования в Yandex Cloud и управления ими."
   default_algorithm = "AES_128"
-  rotation_period = "8760h" 
+  rotation_period = "8760h"
 }
 
 resource "yandex_kubernetes_cluster" "k8s_cluster" {
