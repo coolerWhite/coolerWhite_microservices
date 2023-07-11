@@ -20,7 +20,7 @@ spec:
         component: ui
     spec:
       containers:
-      - image: coolerwhite/ui
+      - image: coolerwhite/ui:latest
         name: ui
         env:
         - name: ENV

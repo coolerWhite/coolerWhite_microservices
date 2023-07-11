@@ -20,5 +20,5 @@ spec:
         component: comment
     spec:
       containers:
-      - image: coolerwhite/comment
+      - image: coolerwhite/comment:latest
         name: comment
