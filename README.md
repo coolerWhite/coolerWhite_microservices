@@ -48,3 +48,10 @@ FROM ubuntu:16.04 -> FROM ubuntu:20.04
   - docker exec -it id_docker_container grep 'Password:' /etc/gitlab/initial_root_password : для получения password_root
 
 =================
+logging-1
+=================
+
+##Как запустить
+ - создать Docker контейнер fluentd (logging/fluentd)
+ - поднять инфраструктуру запуском *compose.yml в директории docker
+ - настроить сборку логов и метрик

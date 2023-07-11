@@ -25,3 +25,4 @@ key.json
 ./trash
 .terraform.lock.hcl
 .env
+trash
