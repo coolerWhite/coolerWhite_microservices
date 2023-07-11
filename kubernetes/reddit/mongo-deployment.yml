@@ -29,7 +29,9 @@ spec:
         volumeMounts:
         - name: mongo-persistent-storage
           mountPath: /data/db
-      volumes:
+      volumes: # Ассоциированные с POD-ом Volume-ы
+      # name: mongo-gce-pd-storage
       - name: mongo-persistent-storage
+        # emptyDir: {} #При создании пода с такимтипом просто создается пустой docker volume
         persistentVolumeClaim:
-          claimName: mongo-gce-pd-storage
+          claimName: mongo-pvc
